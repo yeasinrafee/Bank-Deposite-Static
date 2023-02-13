@@ -14,8 +14,13 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
 
 // For Withdraw 
 document.getElementById('btn-withdraw').addEventListener('click', function(){
-    withdraw.innerText = userWithdraw.value;
     totalBalance = parseInt(balance.innerText);
-    balance.innerText = totalBalance - parseInt(userWithdraw.value);
-    userWithdraw.value = "";
+    if(totalBalance > parseInt(userWithdraw.value)){
+        withdraw.innerText = userWithdraw.value;
+        balance.innerText = totalBalance - parseInt(userWithdraw.value);
+        userWithdraw.value = "";
+    }else{
+        alert("You don't have safficiant Balance!!");
+    }
+
 })
